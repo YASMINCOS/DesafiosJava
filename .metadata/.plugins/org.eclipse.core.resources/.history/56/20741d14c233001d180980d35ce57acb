@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+	
+	List<Porco> porcos = new ArrayList<>();
+
+	public static void main(String[] args) {
+		
+		Porco porco = new Porco("porquinho", SexoPorcoEnum.MACHO, 12b, 40);
+	}
+	
+}

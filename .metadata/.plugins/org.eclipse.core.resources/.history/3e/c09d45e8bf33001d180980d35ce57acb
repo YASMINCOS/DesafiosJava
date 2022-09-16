@@ -1,0 +1,34 @@
+
+public class Porco {
+
+	String nome;
+	SexoPorcoEnum sexo;
+	byte idade;
+	short peso;
+
+	public Porco(String nome, SexoPorcoEnum sexo, byte idade, short peso){
+		this.nome=nome;
+		this.sexo=sexo;
+		this.idade=idade;
+		this.peso=peso;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public SexoPorcoEnum getSexo() {
+		return sexo;
+	}
+
+	public byte getIdade() {
+		return idade;
+	}
+
+	public short getPeso() {
+		return peso;
+	}
+	
+	
+	
+}

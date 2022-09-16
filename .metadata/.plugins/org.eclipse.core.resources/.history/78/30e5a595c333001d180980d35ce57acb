@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Chiqueiro {
+
+	
+	private List<Porco> porcos = new ArrayList<>();
+	private Short quantidadePorcosMacho = 0;
+	private Short quantidadePorcosFemea = 0;
+	private Short quantidadePorcosEntre50e80 = 0;
+	private Short quantidadePorcosComMais80 = 0;
+	
+	
+	public void adicionarPorco(Porco[] porcos){
+		
+		for (Porco porco : porcos) {
+			if(porco.getSexo().equals(SexoPorcoEnum.MACHO)) {
+				quantidadePorcosMacho++;
+			}else {
+				quantidadePorcosFemea++;
+			}
+			
+			if(porco.getPeso() >= 50 && porco.getPeso() <= 80) {
+				quantidadePorcosEntre50e80++;
+			}else if(porco.getPeso() > 80) {
+				quantidadePorcosComMais80++;
+			}
+			
+			this.porcos.add(porco);
+		}
+		
+		
+	}
+	
+	public void adicionarPorco(List<Porco> porcos) {
+		this.porcos.addAll(porcos);
+	}
+	
+	public void adicionarPorco(Porco porco) {
+		this.porcos.add(porco);
+	}
+	
+	public List<Porco> devolveListaPorcos(){
+		return this.porcos;
+	}
+	
+	private void contarPorcosMacho() {
+		
+	}
+}

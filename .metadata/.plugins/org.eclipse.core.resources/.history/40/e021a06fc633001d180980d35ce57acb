@@ -1,0 +1,95 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Chiqueiro {
+
+	
+	private List<Porco> porcos = new ArrayList<>();
+	private Short quantidadePorcosMacho = 0;
+	private Short quantidadePorcosFemea = 0;
+	private Short quantidadePorcosEntre50e80 = 0;
+	private Short quantidadePorcosComMais80 = 0;
+	private Integer porcoMaisPesado = Integer.MIN_VALUE;
+	private Integer porcoMaisLeve = Integer.MAX_VALUE;
+	private Integer totalPesoPorcos = 0;
+	private Integer totalPesoPorcoMacho=0;
+	private Integer totalPesoPorcoFemea=0;
+	private Double mediaPesoPorcosGeral = 0d;
+	private Double mediaPesoPorcosMacho = 0d;
+	private Double mediaPesoPorcosFemea = 0d;
+	private Integer porcoMaisPesadoMacho = 0;
+	private Integer porcoMaisPesadoFemea = 0;
+	private Integer porcoMaisLeveMacho = 0;
+	private Integer porcoMaisLeveFemea = 0;
+	
+	
+	public void adicionarPorco(Porco[] porcos){
+		
+		for (Porco porco : porcos) {
+			if(porco.getSexo().equals(SexoPorcoEnum.MACHO)) {
+				quantidadePorcosMacho++;
+				totalPesoPorcoMacho+=porco.getPeso();
+			}else {
+				quantidadePorcosFemea++;
+				totalPesoPorcoFemea+=porco.getPeso();
+			}
+			
+			if(porco.getPeso() >= 50 && porco.getPeso() <= 80) {
+				quantidadePorcosEntre50e80++;
+			}else if(porco.getPeso() > 80) {
+				quantidadePorcosComMais80++;
+			}
+			
+			if(porco.getPeso() > porcoMaisPesado) {
+				porcoMaisPesado = porco.getPeso();
+				
+				if(porco.getSexo().equals(SexoPorcoEnum.MACHO)) {
+					porcoMaisPesadoMacho = porco.getPeso();
+				}else {
+					porcoMaisPesadoFemea = porco.getPeso();
+				}
+			}
+			
+			if(porco.getPeso() < porcoMaisLeve) {
+				porcoMaisLeve = porco.getPeso();
+				
+				if(porco.getSexo().equals(SexoPorcoEnum.MACHO)) {
+					porcoMaisLeveMacho = porco.getPeso();
+				}else {
+					porcoMaisLeveFemea = porco.getPeso();
+				}
+			}
+			
+			
+			totalPesoPorcos += porco.getPeso();
+			
+			this.porcos.add(porco);
+			
+		}
+		
+		mediaPesoPorcosGeral = (double) (totalPesoPorcos / porcos.length);
+		mediaPesoPorcosFemea = (double) (totalPesoPorcoFemea / quantidadePorcosFemea);
+		mediaPesoPorcosMacho = (double) (totalPesoPorcoMacho / quantidadePorcosMacho);
+		
+		
+		
+		
+	}
+	
+	public void adicionarPorco(List<Porco> porcos) {
+		this.porcos.addAll(porcos);
+	}
+	
+	public void adicionarPorco(Porco porco) {
+		this.porcos.add(porco);
+	}
+	
+	public List<Porco> devolveListaPorcos(){
+		return this.porcos;
+	}
+	
+	private void contarPorcosMacho() {
+		
+	}
+}

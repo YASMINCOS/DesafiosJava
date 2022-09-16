@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+	
+	List<Porco> porcos = new ArrayList<>();
+
+	public static void main(String[] args) {
+		
+		Porco porquinho = new Porco("porquinho", SexoPorcoEnum.MACHO,40, 8);
+		Porco porquinhoA = new Porco("porquinhoA", SexoPorcoEnum.FEMEA,50, 6);
+		
+		Porco[] porcos = {porquinho, porquinhoA};
+		
+		Chiqueiro chiqueiro = new Chiqueiro();
+		
+		chiqueiro.adicionarPorco(porcos);
+		
+		System.out.println("Quantidade de porcos: " + chiqueiro.devolveListaPorcos().size());
+	}
+	
+}
