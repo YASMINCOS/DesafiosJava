@@ -23,7 +23,8 @@ public class Principal {
 	        return escolher;
 	    }
 	 
-	 private static Jogador combate() {
+	 @SuppressWarnings("unused")
+	private static void combate(UsuarioForca atacante,UsuarioForca atacado) {
 		 Random random= new Random();
 		 atacante.setPositionInCombate(random.nextInt(2));
 		 atacado.setPositionInCombat(atacante.getPositionInCombate() == 1 ? 2 : 1);
@@ -40,8 +41,7 @@ public class Principal {
 		UsuarioForca sith = new Sith("Sith", 1, 90, 10, 10, 5 );
 		
 		
-		UsuarioForca atacado=null;
-		UsuarioForca atacante =sith;
+		
 		System.out.println("Atacante:"+escolher());
 		System.out.println("Atacado :"+escolher());
 		System.out.println("Atacado :"+atacado.getNome());
