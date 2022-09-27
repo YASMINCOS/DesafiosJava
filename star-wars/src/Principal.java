@@ -1,4 +1,3 @@
-
 import java.util.Random;
 
 public class Principal {
@@ -24,15 +23,13 @@ public class Principal {
 	    }
 	 
 	 @SuppressWarnings("unused")
-	private static void combate(UsuarioForca atacante,UsuarioForca atacado) {
+	 private static void Combate(UsuarioForca atacante,UsuarioForca atacado) {
 		 Random random= new Random();
 		 atacante.setPositionInCombate(random.nextInt(2));
 		 atacado.setPositionInCombat(atacante.getPositionInCombate() == 1 ? 2 : 1);
 	 }
 	 
 
-			
-	 
 	 
 	public static void main(String[] args) {
 		
@@ -40,10 +37,12 @@ public class Principal {
 		UsuarioForca jedi = new Jedi("Jedi", 2, 100, 10, 10, 5 );
 		UsuarioForca sith = new Sith("Sith", 1, 90, 10, 10, 5 );
 		
+	
 		
 		
-		System.out.println("Atacante:"+escolher());
-		System.out.println("Atacado :"+escolher());
+		System.out.println("Jogadores"+escolher());
+		System.out.println("Atacante:"+Combate(atacante, atacado));
+		System.out.println("Atacado :"+Combate(atacante, atacado));
 		System.out.println("Atacado :"+atacado.getNome());
 		System.out.println("Nivel do atacado:"+atacado.getNivel());
 		System.out.println("Total de pontos atacado:"+atacado.getTotalPontos());
