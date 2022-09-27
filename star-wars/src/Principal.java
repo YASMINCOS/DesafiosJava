@@ -4,9 +4,16 @@ import java.util.Random;
 public class Principal {
 	 public enum Jogador {
 
-		 CACADOR_RECOMPENSA,
-			JEDI,
-			SITH
+		 CACADOR_RECOMPENSA(1),
+			JEDI(2),
+			SITH(3);
+			
+		 int value;
+			
+			private Jogador(int value) {
+				this.value = value;
+			}
+					
 	    }
 	 private static Jogador escolher(){
 	        Random random = new Random();
@@ -16,6 +23,16 @@ public class Principal {
 	        return escolher;
 	    }
 	 
+	 private static Jogador combate() {
+		 Random random= new Random();
+		 atacante.setPositionInCombate(random.nextInt(2));
+		 atacado.setPositionInCombat(atacante.getPositionInCombate() == 1 ? 2 : 1);
+	 }
+	 
+
+			
+	 
+	 
 	public static void main(String[] args) {
 		
 		CacadorRecompensa cacador =  new CacadorRecompensa("Caçador", 0, 100, 0 );
@@ -23,7 +40,7 @@ public class Principal {
 		UsuarioForca sith = new Sith("Sith", 1, 90, 10, 10, 5 );
 		
 		
-		UsuarioForca atacado= jedi;
+		UsuarioForca atacado=null;
 		UsuarioForca atacante =sith;
 		System.out.println("Atacante:"+escolher());
 		System.out.println("Atacado :"+escolher());
