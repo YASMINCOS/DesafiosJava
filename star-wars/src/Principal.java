@@ -22,11 +22,13 @@ public class Principal {
 	        return escolher;
 	    }
 	 
+	 
 	 @SuppressWarnings("unused")
-	 private static void Combate(UsuarioForca atacante,UsuarioForca atacado) {
+	 private static UsuarioForca Combate(UsuarioForca atacante,UsuarioForca atacado) {
 		 Random random= new Random();
 		 atacante.setPositionInCombate(random.nextInt(2));
 		 atacado.setPositionInCombat(atacante.getPositionInCombate() == 1 ? 2 : 1);
+		 return atacante;
 	 }
 	 
 
@@ -40,31 +42,31 @@ public class Principal {
 	
 		
 		
-		System.out.println("Jogadores"+escolher());
-		System.out.println("Atacante:"+Combate(atacante, atacado));
-		System.out.println("Atacado :"+Combate(atacante, atacado));
-		System.out.println("Atacado :"+atacado.getNome());
-		System.out.println("Nivel do atacado:"+atacado.getNivel());
-		System.out.println("Total de pontos atacado:"+atacado.getTotalPontos());
-		System.out.println("Atacante :"+atacante.getNome());
-		System.out.println("Total de pontos atacante:"+atacante.getTotalPontos());
-		System.out.println("Nivel do atacante: "+atacante.getNivel());
+		System.out.println("Jogador 1:"+escolher() + " Jogador 2:"+escolher());
+		System.out.println("Atacante:"+Combate(jedi, sith));
+		System.out.println("Atacado :"+Combate(jedi, sith));
+		System.out.println("Atacado :"+sith.getNome());
+		System.out.println("Nivel do atacado:"+sith.getNivel());
+		System.out.println("Total de pontos atacado:"+sith.getTotalPontos());
+		System.out.println("Atacante :"+jedi.getNome());
+		System.out.println("Total de pontos atacante:"+jedi.getTotalPontos());
+		System.out.println("Nivel do atacante: "+jedi.getNivel());
 
 
 	
 		
 		while(true) {
 			
-			atacante.ataque(atacado);
+			jedi.ataque(sith);
 		
-			if(atacado.getPontosVidaAtual()>0){
-				atacado=atacante;
-				System.out.println("Pontos de vida: "+ atacante.getPontosVidaAtual());
+			if(sith.getPontosVidaAtual()>0){
+				sith=jedi;
+				System.out.println("Pontos de vida: "+ jedi.getPontosVidaAtual());
 				break;
 			}
 			
-			if(atacado.getPontosVidaAtual()<=0) {
-				System.out.println(atacado.getPontosVidaAtual());
+			if(sith.getPontosVidaAtual()<=0) {
+				System.out.println(sith.getPontosVidaAtual());
 				break;
 			}
 
