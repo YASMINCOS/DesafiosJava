@@ -58,15 +58,15 @@ public abstract class UsuarioForca extends Jogador{
 		this.dano = dano;
 	}
 	public void setPositionInCombate(int nextInt) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	public int getPositionInCombate() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	public void setPositionInCombat(int i) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
