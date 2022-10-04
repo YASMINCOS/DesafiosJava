@@ -1,25 +1,40 @@
 
+
 public class CacadorRecompensas extends Jogador{
 
 
-	public CacadorRecompensas(String nome, Integer nivel, Integer pontosVida) {
-		this.setNome(nome);
-		this.setNivel(nivel);
-		this.setPontosVida(pontosVida);
+	public CacadorRecompensas() {
+		this.nome="Xedi";
+		this.nivel=3;
+		this.maxPontoVida=239;
+		this.pontosVida=this.maxPontoVida;
 	}
+	public Integer getPontosVidasAtuais() {
+		return getPontosVidasAtuais();
+	}
+
 	@Override
 	public void ataque(Jogador atacado) {
 			System.out.println("Jogador " + this.getNome() + " está atacando o jogador " + atacado.getNome());
 		}
+	
+	
 	@Override
-	public String toString() {
-		return "CacadorRecompensas [getDano()=" + getDano() + ", getNivel()=" + getNivel() + ", getNome()=" + getNome()
-				+ ", getPontosVida()=" + getPontosVida() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
-				+ ", toString()=" + super.toString() + "]";
+	public int obterVidasAtuais(int dano) {
+		return pontosVida;
 	}
+	
+	@Override
+	public int informarVidasAtuais(int dano) {
+		
+		pontosVida = pontosVida - dano;
+		
+		return pontosVida;
+	}
+	
+	
 		
 	}
 	
 
 	
-
