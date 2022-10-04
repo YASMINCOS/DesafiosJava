@@ -1,4 +1,5 @@
 
+
 public class Jedi extends Jogador{
 	
 
@@ -12,20 +13,25 @@ public class Jedi extends Jogador{
 		this.pontosVida=this.maxPontoVida;
 	}
 
-	public void ataque(Jogador atacado) {
+	public int ataque(Jogador atacado) {
+		@SuppressWarnings("unused")
 		int dano=0;
 		imprimirAtaque(atacado);
-		System.out.println("Empurrao da forca");
+		System.out.println("Esta atacacando com o empurrao da forca");
 		dano = pontosForca;
+		System.out.println("Total de dano"+ dano);
+		return dano;
 	}
 
 	private void imprimirAtaque(Jogador atacado) {
 		System.out.println("Jogador " + this.getNome() + " está atacando o jogador " + atacado.getNome());
 	}
 
-	public void ataqueSabreDeLuz(Jogador atacado) {
+	public int ataque2(Jogador atacado) {
 		System.out.println("Jogador "+ this.getNome() +"está atacando com forca");
+		System.out.println("Total de dano"+ habilidadesSabreDeLuz);
 		System.out.println("WHON");
+		return habilidadesSabreDeLuz;
 		
 	}
 
@@ -52,15 +58,13 @@ public class Jedi extends Jogador{
 
 
 	@Override
-	public int obterVidasAtuais(int dano) {
+	public int obterVidasAtuais() {
 		return pontosVida;
 	}
 	
 	@Override
-	public int informarVidasAtuais(int dano) {
-		
+	public int informarVidasAtuais(int dano) {		
 		pontosVida = pontosVida - dano;
-		
 		return pontosVida;
 	}
 	
