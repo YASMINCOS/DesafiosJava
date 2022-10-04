@@ -1,27 +1,30 @@
 
 public class Sith extends Jogador{
 
-	private Integer habilidadesSabreDeLuz;
-	private Integer pontosForca;
-
-
-	public Sith(String nome, Integer pontosForca, Integer nivel, Integer habilidadesSabreDeLuz, Integer pontosVida) {
-		this.setNome(nome);
-		this.setPontosForca(pontosForca);
-		this.setNivel(nivel);
-		this.setHabilidadesSabreDeLuz(habilidadesSabreDeLuz);
-		this.setPontosVida(pontosVida);
+	public Sith() {
+		this.nome="Darth Vader";
+		this.pontosForca=45;
+		this.nivel=4;
+		this.habilidadesSabreDeLuz=123;
+		this.maxPontoVida=200;
+		this.pontosVida=this.maxPontoVida;
+		
 	}
 
 	@Override
 	public void ataque(Jogador atacado) {
-		atacado.setDano(this.getPontosForca() * this.getNivel());
-		imprimirAtaque(atacado);
+		int dano = 0;
+		dano = pontosForca * nivel;
+		System.out.println("Raio da forca");
+	
 	}
 
 	public void ataqueSabreDeLuz(Jogador atacado) {
-		atacado.setDano(this.getHabilidadesSabreDeLuz());
-		imprimirBarulho();
+		int dano = 0;
+		dano = nivel * habilidadesSabreDeLuz;
+		System.out.println(dano);
+		System.out.println("Jogador "+ this.getNome() +"está atacando com raio");
+		System.out.println("WHON");
 	}
 	
 	private void imprimirAtaque(Jogador atacado) {
@@ -36,10 +39,7 @@ public class Sith extends Jogador{
 		this.habilidadesSabreDeLuz = habilidadesSabreDeLuz;
 	}
 	
-	private void imprimirBarulho() {
-		System.out.println("WHON");
-	}
-
+	
 	public Integer getPontosForca() {
 		return pontosForca;
 	}
@@ -47,5 +47,24 @@ public class Sith extends Jogador{
 	public void setPontosForca(Integer pontosForca) {
 		this.pontosForca = pontosForca;
 	}
+	public Integer getPontosVidasAtuais() {
+		return getPontosVidasAtuais();
+	}
+
+
+	@Override
+	public int obterVidasAtuais(int dano) {
+		return pontosVida;
+	}
+	
+	@Override
+	public int informarVidasAtuais(int dano) {
+		
+		pontosVida = pontosVida - dano;
+		
+		return pontosVida;
+	}
+
+	
 	
 }
