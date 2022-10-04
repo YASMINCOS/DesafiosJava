@@ -2,22 +2,18 @@ import java.util.Objects;
 
 public abstract class Jogador {
 
-	private String nome;
-	private Integer dano;
-	private Integer nivel;
-	private Integer pontosVida;
-
-	public Integer getDano() {
-		return dano;
-	}
+	protected String nome;
+	protected Integer nivel;
+	protected Integer pontosVida;
+	protected Integer maxPontoVida;
+	protected Integer pontosForca;
+	protected Integer habilidadesSabreDeLuz;
 	
 	public abstract void ataque(Jogador atacado);
+	public abstract int obterVidasAtuais(int dano);
+	public abstract int informarVidasAtuais(int dano) ;
 	
 
-	public void setDano(Integer dano) {
-		this.dano = dano;
-		this.pontosVida-= dano;
-	}
 
 	public Integer getNivel() {
 		return nivel;
@@ -43,22 +39,8 @@ public abstract class Jogador {
 		this.pontosVida = pontosVida;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(dano, nivel, nome, pontosVida);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Jogador other = (Jogador) obj;
-		return Objects.equals(dano, other.dano) && Objects.equals(nivel, other.nivel)
-				&& Objects.equals(nome, other.nome) && Objects.equals(pontosVida, other.pontosVida);
-	}
 	
+
+
+		
 }
